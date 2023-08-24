@@ -40,6 +40,7 @@ export default function ProfilePage() {
                     </button>
                 </div>
             )}
+            {subpage === "places" && <PlacesPage />}
         </div>
     );
 }
