@@ -11,7 +11,7 @@ export default function Perks({ selected, onChange }) {
     }
     return (
         <>
-            <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+            <label className="border p-6 flex rounded-2xl gap-2 items-center cursor-pointer">
                 <input
                     type="checkbox"
                     checked={selected.includes("wifi")}
@@ -34,7 +34,7 @@ export default function Perks({ selected, onChange }) {
                 </svg>
                 <span>Wifi</span>
             </label>
-            <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+            <label className="border p-6 flex rounded-2xl gap-2 items-center cursor-pointer">
                 <input
                     type="checkbox"
                     checked={selected.includes("parking")}
@@ -57,7 +57,7 @@ export default function Perks({ selected, onChange }) {
                 </svg>
                 <span>Free parking spot</span>
             </label>
-            <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+            <label className="border p-6 flex rounded-2xl gap-2 items-center cursor-pointer">
                 <input
                     type="checkbox"
                     checked={selected.includes("tv")}
@@ -80,7 +80,7 @@ export default function Perks({ selected, onChange }) {
                 </svg>
                 <span>TV</span>
             </label>
-            <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+            <label className="border p-6 flex rounded-2xl gap-2 items-center cursor-pointer">
                 <input
                     type="checkbox"
                     checked={selected.includes("radio")}
@@ -103,7 +103,7 @@ export default function Perks({ selected, onChange }) {
                 </svg>
                 <span>Radio</span>
             </label>
-            <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+            <label className="border p-6 flex rounded-2xl gap-2 items-center cursor-pointer">
                 <input
                     type="checkbox"
                     checked={selected.includes("pets")}
@@ -126,7 +126,7 @@ export default function Perks({ selected, onChange }) {
                 </svg>
                 <span>Pets</span>
             </label>
-            <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+            <label className="border p-6 flex rounded-2xl gap-2 items-center cursor-pointer">
                 <input
                     type="checkbox"
                     checked={selected.includes("entrance")}
