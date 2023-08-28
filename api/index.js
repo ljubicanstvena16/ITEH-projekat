@@ -206,17 +206,29 @@ app.get('/api/places', async (req,res) => {
   res.json( await Place.find() );
 });
 
-//Ruta za booking
-app.post('/booking', async (req,res) => {
-  const{
-    place, checkIn, checkOut, numberOfGuests, name, phone, price,
+//Ruta za dodavanje bookinga / rezervacije smestaja
+app.post('/api/bookings', async (req, res) => {
+  mongoose.connect(process.env.MONGO_URL);
+  const userData = await getUserDataFromReq(req);
+  const {
+    place,checkIn,checkOut,numberOfGuests,name,phone,price,
   } = req.body;
-  await Booking.create({
-    place, checkIn, checkOut, numberOfGuests, name, phone, price,
-  }).then((err,doc)=>{
-    if(err) throw err;
+  Booking.create({
+    place,checkIn,checkOut,numberOfGuests,name,phone,price,
+    user:userData.id,
+  }).then((doc) => {
     res.json(doc);
+  }).catch((err) => {
+    throw err;
   });
+});
+
+
+//Ruta za vracanje svih bukiranih smestaja
+app.get('/api/bookings', async (req,res) => {
+  mongoose.connect(process.env.MONGO_URL);
+  const userData = await getUserDataFromReq(req);
+  res.json( await Booking.find({user:userData.id}).populate('place') );
 });
 
 app.listen(4000);
