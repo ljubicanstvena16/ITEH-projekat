@@ -13,6 +13,31 @@ const cookieParser = require('cookie-parser');
 
 const imageDownloader = require('image-downloader');
 
+const {S3Client, PutObjectCommand} = require('@aws-sdk/client-s3');
+
+async function uploadToS3(path, originalFilename, mimetype) {
+  const client = new S3Client({
+    region: 'us-east-1',
+    credentials: {
+      accessKeyId: process.env.S3_ACCESS_KEY,
+      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+    },
+  });
+  const parts = originalFilename.split('.');
+  const ext = parts[parts.length - 1];
+  const newFilename = Date.now() + '.' + ext;
+  await client.send(new PutObjectCommand({
+    Bucket: bucket,
+    Body: fs.readFileSync(path),
+    Key: newFilename,
+    ContentType: mimetype,
+    ACL: 'public-read',
+  }));
+  return `https://${bucket}.s3.amazonaws.com/${newFilename}`;
+}
+
+const multer = require('multer');
+
 require('dotenv').config();
 const app = express();
 
@@ -65,10 +90,10 @@ app.post('/api/login', async (req,res) => {
         res.cookie('token', token).json(userDoc);
       });
     } else {
-      res.status(422).json('Password nije u redu! Pokusaj ponovo.');
+      res.status(422).json('pass not ok');
     }
   } else {
-    res.json('Korisnik nije pronadjen! Registruj se ukoliko nemas nalog.');
+    res.json('not found');
   }
 });
 
