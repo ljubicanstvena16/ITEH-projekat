@@ -37,6 +37,7 @@ async function uploadToS3(path, originalFilename, mimetype) {
 }
 
 const multer = require('multer');
+const BookingModel = require('./models/Booking.js');
 
 require('dotenv').config();
 const app = express();
@@ -203,6 +204,19 @@ app.put('/api/places', async (req,res) => {
 app.get('/api/places', async (req,res) => {
   mongoose.connect(process.env.MONGO_URL);
   res.json( await Place.find() );
+});
+
+//Ruta za booking
+app.post('/booking', async (req,res) => {
+  const{
+    place, checkIn, checkOut, numberOfGuests, name, phone, price,
+  } = req.body;
+  await Booking.create({
+    place, checkIn, checkOut, numberOfGuests, name, phone, price,
+  }).then((err,doc)=>{
+    if(err) throw err;
+    res.json(doc);
+  });
 });
 
 app.listen(4000);
