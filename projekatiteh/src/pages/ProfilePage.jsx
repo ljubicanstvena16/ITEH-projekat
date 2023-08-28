@@ -19,7 +19,7 @@ export default function ProfilePage() {
     }
 
     if (!ready) {
-        return "Loading...";
+        return "Učitavanje...";
     }
 
     if (ready && !user && !redirect) {
@@ -34,9 +34,9 @@ export default function ProfilePage() {
             <AccountNav />
             {subpage === "profile" && (
                 <div className="text-center max-w-lg mx-auto">
-                    Logged in as {user.name} ({user.email})<br />
+                    Korisnik prijavljen kao {user.name} ({user.email})<br />
                     <button onClick={logout} className="primary max-w-sm mt-2">
-                        Logout
+                        Odjavi se
                     </button>
                 </div>
             )}

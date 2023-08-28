@@ -48,7 +48,7 @@ export default function BookingWidget({ place }) {
     return (
         <div className="bg-white shadow p-4 rounded-2xl">
             <div className="text-2xl text-center">
-                Price: ${place.price} / per night
+                Cena: ${place.price} / per night
             </div>
             <div className="border rounded-2xl mt-4">
                 <div className="flex">
@@ -61,7 +61,7 @@ export default function BookingWidget({ place }) {
                         />
                     </div>
                     <div className="py-3 px-4 border-l">
-                        <label>Check out:</label>
+                        <label>Ček-aut:</label>
                         <input
                             type="date"
                             value={checkOut}
@@ -70,7 +70,7 @@ export default function BookingWidget({ place }) {
                     </div>
                 </div>
                 <div className="py-3 px-4 border-t">
-                    <label>Number of guests:</label>
+                    <label>Broj gostiju:</label>
                     <input
                         type="number"
                         value={numberOfGuests}
@@ -79,13 +79,13 @@ export default function BookingWidget({ place }) {
                 </div>
                 {numberOfNights > 0 && (
                     <div className="py-3 px-4 border-t">
-                        <label>Your full name:</label>
+                        <label>Tvoje ime i prezime:</label>
                         <input
                             type="text"
                             value={name}
                             onChange={(ev) => setName(ev.target.value)}
                         />
-                        <label>Phone number:</label>
+                        <label>Broj telefona:</label>
                         <input
                             type="tel"
                             value={phone}
@@ -95,7 +95,7 @@ export default function BookingWidget({ place }) {
                 )}
             </div>
             <button onClick={bookThisPlace} className="primary mt-4">
-                Book this place
+                Rezerviši ovo mesto!
                 {numberOfNights > 0 && (
                     <span> ${numberOfNights * place.price}</span>
                 )}

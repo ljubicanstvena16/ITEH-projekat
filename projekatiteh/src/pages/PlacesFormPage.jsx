@@ -88,66 +88,72 @@ export default function PlacesFormPage() {
             <AccountNav />
             <form onSubmit={savePlace}>
                 {preInput(
-                    "Title",
-                    "Title for your place. should be short and catchy as in advertisement"
+                    "Naslov",
+                    "Naslov bi trebalo da bude što privlačniji korisnicima platforme."
                 )}
                 <input
                     type="text"
                     value={title}
                     onChange={(ev) => setTitle(ev.target.value)}
-                    placeholder="title, for example: My lovely apt"
+                    placeholder="Naslov oglasa"
                 />
-                {preInput("Address", "Address to this place")}
+                {preInput("Adresa", "Adresa mesta koju postavljaš za oglas.")}
                 <input
                     type="text"
                     value={address}
                     onChange={(ev) => setAddress(ev.target.value)}
-                    placeholder="address"
+                    placeholder="Mije Kovačevića..."
                 />
-                {preInput("Photos", "more = better")}
+                {preInput("Fotografije", "Što više fotografija, to bolje!")}
                 <PhotosUploader
                     addedPhotos={addedPhotos}
                     onChange={setAddedPhotos}
                 />
-                {preInput("Description", "description of the place")}
+                {preInput("Opis", "Detaljniji opis ovog mesta koje se izdaje.")}
                 <textarea
                     value={description}
                     onChange={(ev) => setDescription(ev.target.value)}
                 />
-                {preInput("Perks", "select all the perks of your place")}
+                {preInput(
+                    "Osobine",
+                    "Odaberi sve povlastice koje postoje u tvom smeštaju."
+                )}
                 <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
                     <Perks selected={perks} onChange={setPerks} />
                 </div>
-                {preInput("Extra info", "house rules, etc")}
+                {preInput(
+                    "Ekstra informacije",
+                    "Ovde možeš navesti pravila kućnog reda, dodatne infomacije..."
+                )}
                 <textarea
                     value={extraInfo}
                     onChange={(ev) => setExtraInfo(ev.target.value)}
                 />
                 {preInput(
-                    "Check in&out times",
-                    "add check in and out times, remember to have some time window for cleaning the room between guests"
+                    "Vremena za ček-in i ček-aut.",
+                    "Dodaj vremena za ček-in i ček-aut, ali vodi računa da ostaviš dovoljno vremena između za čišćenje."
                 )}
                 <div className="grid gap-2 grid-cols-2 md:grid-cols-4">
                     <div>
-                        <h3 className="mt-2 -mb-1">Check in time</h3>
+                        <h3 className="mt-2 -mb-1">Ček-in vreme</h3>
                         <input
                             type="text"
                             value={checkIn}
                             onChange={(ev) => setCheckIn(ev.target.value)}
-                            placeholder="14"
+                            placeholder="18"
                         />
                     </div>
                     <div>
-                        <h3 className="mt-2 -mb-1">Check out time</h3>
+                        <h3 className="mt-2 -mb-1">Ček-aut vreme</h3>
                         <input
                             type="text"
                             value={checkOut}
                             onChange={(ev) => setCheckOut(ev.target.value)}
-                            placeholder="11"
+                            placeholder="9"
                         />
                     </div>
                     <div>
-                        <h3 className="mt-2 -mb-1">Max number of guests</h3>
+                        <h3 className="mt-2 -mb-1">Maksimalni broj gostiju</h3>
                         <input
                             type="number"
                             value={maxGuests}
@@ -155,7 +161,7 @@ export default function PlacesFormPage() {
                         />
                     </div>
                     <div>
-                        <h3 className="mt-2 -mb-1">Price per night</h3>
+                        <h3 className="mt-2 -mb-1">Cena po noćenju</h3>
                         <input
                             type="number"
                             value={price}
@@ -163,7 +169,7 @@ export default function PlacesFormPage() {
                         />
                     </div>
                 </div>
-                <button className="primary my-4">Save</button>
+                <button className="primary my-4">Sačuvaj u bazi!</button>
             </form>
         </div>
     );
