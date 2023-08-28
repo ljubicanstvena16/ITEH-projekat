@@ -28,7 +28,7 @@ export default function LoginPage() {
         <div className="mt-8 flex justify-center">
             <div className="bg-white p-6 rounded-lg shadow-md w-96">
                 <h1 className="text-3xl font-semibold mb-4 text-center">
-                    Login
+                    Prijava
                 </h1>
                 <form className="space-y-4" onSubmit={handleLoginSubmit}>
                     <input
@@ -49,12 +49,12 @@ export default function LoginPage() {
                         type="submit"
                         className="primary w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 focus:ring-offset-2"
                     >
-                        Login
+                        Prijavi se
                     </button>
                     <div className="text-center text-gray-500">
-                        Don't have an account yet?{" "}
+                        Nemate nalog još?{" "}
                         <Link to="/register" className="underline text-black">
-                            Register now
+                            Registruj se sada!
                         </Link>
                     </div>
                 </form>
