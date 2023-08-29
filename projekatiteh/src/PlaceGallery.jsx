@@ -92,7 +92,7 @@ export default function PlaceGallery({ place }) {
                         clipRule="evenodd"
                     />
                 </svg>
-                Show more photos
+                Prikaži sve fotografije
             </button>
         </div>
     );

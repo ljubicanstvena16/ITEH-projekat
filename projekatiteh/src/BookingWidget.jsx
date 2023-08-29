@@ -48,12 +48,12 @@ export default function BookingWidget({ place }) {
     return (
         <div className="bg-white shadow p-4 rounded-2xl">
             <div className="text-2xl text-center">
-                Cena: ${place.price} / per night
+                Cena: ${place.price} / po noćenju
             </div>
             <div className="border rounded-2xl mt-4">
                 <div className="flex">
                     <div className="py-3 px-4">
-                        <label>Check in:</label>
+                        <label>Ček-in:</label>
                         <input
                             type="date"
                             value={checkIn}
